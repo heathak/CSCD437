@@ -43,9 +43,11 @@ public class RegularExpressions
          if((int)choice != (int)'q')
          {
             System.out.print("Enter string: ");
-            input = kb.nextLine();Pattern pattern = Pattern.compile(regex);
+            input = kb.nextLine();
+            System.out.print(input + "\n");
+            Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(input);
-            System.out.println(matcher.matches());
+            System.out.println(matcher.matches() + "\n");
          }
       }
    }
@@ -69,8 +71,9 @@ public class RegularExpressions
          System.out.println("k. A password that contains at least 10 characters and includes at least one upper case character, lower case character, digit, punctuation mark, and does not have more than 3 consecutive lower case characters");
          System.out.println("l. All words containing an odd number of alphabetic characters, ending in \"ion\"");
          System.out.println("q. quit");
-         System.out.println("Make a selection: ");
+         System.out.print("Make a selection: ");
          choice = (char)kb.nextLine().charAt(0);
+         System.out.print(choice + "\n");
       }
       return choice;
    }
@@ -98,12 +101,13 @@ public class RegularExpressions
    public static String testName()
    {
       //first and last name allow A-Za-z-' and space, 1 to 20, middle initial(s) can be single letters A-Za-z
-      return "^[A-Za-z-' ]{1,20}, [A-Za-z-' ]{1,20}, [A-Za-z]* ?[A-Za-z]?$";
+      return "^[A-Za-z-' ]{1,20}, [A-Za-z-' ]{1,20}(, )?[A-Za-z]*? ?[A-Za-z]?$";
    }
    
    public static String testDate()
    {
-      //allows MM-DD-YYYY, MM/DD/YYYY, leap years and centennials accounted for, but not 400
+      //allows MM-DD-YYYY, MM/DD/YYYY, leap years and centennials accounted for
+      //400 year not working
       return "^(?!02\\-?\\/?30|02\\-?\\/?31|04\\-?\\/?31|06\\-?\\/?31|09\\-?\\/?31|11\\-?\\/?31|02\\-?\\/?29\\-?\\/?[0-9]{2}(?!04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96))((0[1-9]|1[0-2])\\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])\\-[0-9]{4}|(0[1-9]|1[0-2])\\/(0[1-9]|1[0-9]|2[0-9]|3[0-1])\\/[0-9]{4})";
    }
    
@@ -113,7 +117,7 @@ public class RegularExpressions
       //optional quadrant allows caps, lower case, or logical combinations of these
       //street name allows A-Za-z0-9, 1 to 30
       //rd/st/blvd/ave type allows caps, lower case, or logical combinations of these
-      return "[0-9]{1,6} (w|W|west|West|WEST|e|E|east|East|EAST|n|N|north|North|NORTH|s|S|south|South|SOUTH|nw|NW|northwest|Northwest|NorthWest|NORTHWEST|ne|NE|northeast|Northeast|NorthEast|NORTHEAST|sw|SW|southwest|Southwest|SouthWest|SOUTHWEST|se|SE|southeast|Southeast|SouthEast|SOUTHEAST) ?[A-Za-z0-9]{1,30} (road|Road|ROAD|rd|Rd|RD|street|Street|STREET|st|St|ST|boulevard|Boulevard|BOULEVARD|blvd|Blvd|BLVD|avenue|Avenue|AVENUE|ave|Ave|AVE)";
+      return "[0-9]{1,6} ((w|W|west|West|WEST|e|E|east|East|EAST|n|N|north|North|NORTH|s|S|south|South|SOUTH|nw|NW|northwest|Northwest|NorthWest|NORTHWEST|ne|NE|northeast|Northeast|NorthEast|NORTHEAST|sw|SW|southwest|Southwest|SouthWest|SOUTHWEST|se|SE|southeast|Southeast|SouthEast|SOUTHEAST) )?[A-Za-z0-9]{1,30} (road|Road|ROAD|rd|Rd|RD|street|Street|STREET|st|St|ST|boulevard|Boulevard|BOULEVARD|blvd|Blvd|BLVD|avenue|Avenue|AVENUE|ave|Ave|AVE)";
    }
    
    public static String testCityStZip()
@@ -135,7 +139,7 @@ public class RegularExpressions
    public static String testUSCurrency()
    {
       //requires $, commas every 3 digits in whole dollars, two digits for cents, up to trillions
-      return "^-?\\$\\d{1,3}(?:,\\d{3}){1,4}\\.\\d{2}$";
+      return "^-?\\$\\d{1,3}(?:,\\d{3}){0,4}\\.\\d{2}$";
    }
    
    public static String testURL()
@@ -149,7 +153,7 @@ public class RegularExpressions
    public static String testPassword()
    {
       //requires 10, max 32 characters, at least one each of upper case, lower case, digit, punctuation mark (!#$%&'*+-/=?^_`{|}~.), no more than 3 lower case in a row
-      return "(?![a-z]{3})(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!#$%&'*+-/=?^_`{|}~.])[A-Za-z0-9!#$%&'*+-/=?^_`{|}~.]{10,32}";
+      return "(?!.*[a-z]{3})(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!#$%&'*+-/=?^_`{|}~.])[A-Za-z0-9!#$%&'*+-/=?^_`{|}~.]{10,32}";
    }
    
    public static String testIonWords()

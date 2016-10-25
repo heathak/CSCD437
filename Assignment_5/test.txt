@@ -2,8 +2,74 @@ a
 123-45-6789
 a
 123456789
+b
+5094758983
+b
+(509)475-8983
+b
+509-475-8983
 c
 tcapaul@mail.ewu.edu
 c
 thomas.capaul@mail.ewu.edu
+d
+Macchio, Ralph, M
+d
+Macchio, Ralph
+e
+02/29/2016
+e
+02-29-2016
+e
+02-29-2015
+f
+10623 NE 8th St
+f
+10623 8th St
+f
+10623 Pines Road
+f
+10623 Knotts Blvd
+g
+Anchorage, AK 99502
+g
+Anchorage, AK  99502
+g
+Anchorage AK 99502
+h
+00:00:00
+h
+24:00:00
+h
+240000
+h
+12:30:24
+i
+$123,456.78
+i
+$100.00
+i
+$12,3456.54
+j
+http://www.baconisgood.com
+j
+https://www.google.com
+j
+HTTP://WWW.BACONISGOOD.COM
+k
+gf!2RF3$rdG
+k
+gf!2RF3$rdg
+k
+REFd$!kdKJH
+k
+REFd23kdKJH
+k
+123d!$kd45H
+l
+elicitation
+l
+consternation
+l
+creation
 q
